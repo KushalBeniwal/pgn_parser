@@ -1,20 +1,14 @@
 SPACE = ' '
+WHITE_CASTLING_ROW, BLACK_CASTLING_ROW = ['1, 1'], ['8', '8']
 
 def is_king_side_castling(move):
     return len(move) == len(move) == 2
 
 def get_curr_pos(move):
-    if move[0].isupper():
-        k_row, r_row = '1', '1' 
-    else:
-        k_row, r_row = '8', '8'
+    k_row, r_row = WHITE_CASTLING_ROW if move[0].isupper() else BLACK_CASTLING_ROW
     
     k_col = 'e'
-
-    if is_king_side_castling(move):
-        r_col = 'h'
-    else:
-        r_col = 'a'
+    r_col = 'h' if is_king_side_castling(move) else 'a'
 
     return k_col + k_row, r_col + r_row
 
