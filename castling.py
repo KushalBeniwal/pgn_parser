@@ -1,5 +1,5 @@
 SPACE = ' '
-WHITE_CASTLING_ROW, BLACK_CASTLING_ROW = ['1, 1'], ['8', '8']
+WHITE_CASTLING_ROW, BLACK_CASTLING_ROW = ['1', '1'], ['8', '8']
 
 def is_king_side_castling(move):
     return len(move) == len(move) == 2
