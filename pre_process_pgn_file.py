@@ -6,7 +6,7 @@ END = ' end'
 WHITE_PAWN, BLACK_PAWN = 'P', 'p'
 
 def clean(move):
-    return "".join(filter(str.isalnum, move))
+    return ''.join(filter(str.isalnum, move))
 
 def pre_process_a_move(raw_move):
     w_move, b_move = raw_move.strip().split()
@@ -27,7 +27,7 @@ def pre_process_last_move(last_move):
             last_move = WHITE_PAWN + last_move 
         return (clean(last_move) + END).split()
     else:
-        pre_process_a_move(last_move)
+        return pre_process_a_move(last_move)
 
 def pgn_to_moves(pgn_file):
     raw_pgn = SPACE.join([line.strip() for line in open(pgn_file)])
@@ -43,7 +43,7 @@ def pgn_to_moves(pgn_file):
     just_moves = [_.strip() for _ in move_num.split(str_removed)]
 
     last_move = just_moves[-1]
-    result = re.compile('( *1 *- * 0| *0 *- * 1| *1/2 *- *1/2)')
+    result = re.compile('( *1 *- *0| *0 *- *1| *1/2 *- *1/2)')
     last_move = result.sub('', last_move)
 
     return [pre_process_a_move(_) for _ in just_moves[1:-1]] + [pre_process_last_move(last_move)]
