@@ -6,6 +6,7 @@ from pre_process_pgn_file import pgn_to_moves
 from piece import make_piece_move
 from pawn import make_pawn_move
 from castling import do_castling
+from print_board import print_board
 
 SPACE, END = ' ', 'end'
 ROWS, COLS = '12345678', 'abcdefgh'
@@ -24,16 +25,6 @@ def setup():
             piece_view[piece].append(pos)
 
     return board_view, piece_view
-
-def print_final_state(board_view):
-    print('  a b c d e f g h')
-    for pos in board_view:
-        if pos[0] == 'a':
-            print(pos[1], end=' ')
-        print(board_view[pos], end=' ')
-        if pos[0] == 'h':
-            print(pos[1])
-    print('  a b c d e f g h')
 
 def make_move(move, board_view, piece_view):
     if move == END:
@@ -58,7 +49,7 @@ def parse(pgn_file):
         board_view, piece_view = make_move(w_move, board_view, piece_view)
         board_view, piece_view = make_move(b_move, board_view, piece_view)
 
-    print_final_state(board_view)
+    print_board(board_view)
 
 if __name__=='__main__':
     parse(sys.argv[1])
