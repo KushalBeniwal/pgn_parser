@@ -68,6 +68,7 @@ def pre_compute_move(move):
 
 def make_piece_move(move, board_view, piece_view):
     piece, from_pos, is_capture, to_pos = pre_compute_move(move)
+    
     if is_capture:
         piece_to_be_removed = board_view[to_pos]
         piece_view[piece_to_be_removed].remove(to_pos)

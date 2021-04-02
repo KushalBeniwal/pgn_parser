@@ -82,6 +82,7 @@ def is_enpassant(move, move_to, board_view):
 def make_pawn_move(move, board_view, piece_view):
     piece = move[0]
     move_to = move[-3: -1] if is_promotion(move) else move[-2:]
+    
     if is_capture(move):
         move_from = move[1] if move[1] != 'x' else None
 
