@@ -1,3 +1,5 @@
+'''Check and make 'piece move'.'''
+
 ROOK, KNIGHT, BISHOP, QUEEN, KING = 'r', 'n', 'b', 'q', 'k'
 SPACE = ' '
 

@@ -1,3 +1,5 @@
+'''Parse moves to get the final state of the board.'''
+
 import sys
 
 from os import path

@@ -1,3 +1,5 @@
+'''Print board state'''
+
 def print_board(board_view):
     print('  a b c d e f g h')
     for pos in board_view:

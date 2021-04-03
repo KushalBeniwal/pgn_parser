@@ -1,3 +1,5 @@
+'''Pre-process the pgn_file to return (clean)moves only.'''
+
 import re
 
 SPACE = ' '

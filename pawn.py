@@ -1,3 +1,5 @@
+'''In this file I'm making the 'pawn move' after checking its type.'''
+
 SPACE = ' '
 EN_PASSANT_ROW_TO = {'4': '3', '5': '6'}
 PAWN_TO_REMOVE = {'p': 'P', 'P': 'p'}
@@ -46,7 +48,6 @@ def make_capture(piece, move_to, move_from, board_view, piece_view):
     piece_view[piece].append(move_to)
 
     return board_view, piece_view
-    
 
 def make_en_passant(piece, move_to, move_from, board_view, piece_view):
     if move_from == None:

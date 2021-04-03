@@ -1,3 +1,5 @@
+'''Check and do castling.'''
+
 SPACE = ' '
 WHITE_CASTLING_ROW, BLACK_CASTLING_ROW = ['1', '1'], ['8', '8']
 KING_SIDE_CASTLING_FIN_COLS, QUEEN_SIDE_CASTLING_FIN_COLS = ['g', 'f'], ['c', 'd']
