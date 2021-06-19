@@ -1,5 +1,9 @@
-"""Print board state"""
+'''Print board state.
 
+P.S. ignore this file for good coding practices, 
+was done coding and had no energy to do anymore changes.
+
+Update: cleaning up but still no energy to do any changes here.'''
 
 def print_board(board_view):
     print("  a b c d e f g h")

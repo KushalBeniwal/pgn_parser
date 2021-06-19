@@ -9,17 +9,17 @@ from piece import make_piece_move
 from pre_process_pgn_file import pgn_to_moves
 from print_board import print_board
 
-SPACE, END = " ", "end"
-ROWS, COLS = "12345678", "abcdefgh"
-START = "RNBQKBNRPPPPPPPP" + SPACE * 8 * 4 + "pppppppprnbqkbnr"
-PAWN, CASTLING = "p", "o"
-
+SPACE, END = ' ', 'end'
+PIECES = 'rnbqkpRNBQKP'
+ROWS, COLS = '12345678', 'abcdefgh'
+START = 'RNBQKBNRPPPPPPPP' + SPACE * 8 * 4 + 'pppppppprnbqkbnr'
+PAWN, CASTLING = 'p', 'o'
 
 def setup():
     sqrs = [x + y for y in ROWS for x in COLS]
     board_view = dict(zip(sqrs, START))
 
-    piece_view = {pc: [] for pc in "rnbqkpRNBQKP"}
+    piece_view = {pc: [] for pc in PIECES}
     for pos in board_view:
         piece = board_view[pos]
 
