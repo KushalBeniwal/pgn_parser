@@ -21,5 +21,5 @@ python main.py path/to/pgn/file
 
 ## Future Scope
 
-1. Add unit tests
-2. Add GUI
+1. Add unit tests(by the end of June)
+2. Add GUI(maybe never, but good to have in the future scope)
