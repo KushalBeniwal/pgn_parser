@@ -1,4 +1,4 @@
-'''Parse moves to get the final state of the board.'''
+"""Parse moves to get the final state of the board."""
 
 import sys
 
@@ -10,16 +10,17 @@ from pawn import make_pawn_move
 from castling import do_castling
 from print_board import print_board
 
-SPACE, END = ' ', 'end'
-ROWS, COLS = '12345678', 'abcdefgh'
-START = 'RNBQKBNRPPPPPPPP' + SPACE * 8 * 4 + 'pppppppprnbqkbnr'
-PAWN, CASTLING = 'p', 'o'
+SPACE, END = " ", "end"
+ROWS, COLS = "12345678", "abcdefgh"
+START = "RNBQKBNRPPPPPPPP" + SPACE * 8 * 4 + "pppppppprnbqkbnr"
+PAWN, CASTLING = "p", "o"
+
 
 def setup():
-    sqrs = [x+y for y in ROWS for x in COLS]
+    sqrs = [x + y for y in ROWS for x in COLS]
     board_view = dict(zip(sqrs, START))
 
-    piece_view = {pc: [] for pc in 'rnbqkpRNBQKP'}
+    piece_view = {pc: [] for pc in "rnbqkpRNBQKP"}
     for pos in board_view:
         piece = board_view[pos]
 
@@ -27,6 +28,7 @@ def setup():
             piece_view[piece].append(pos)
 
     return board_view, piece_view
+
 
 def make_move(move, board_view, piece_view):
     if move == END:
@@ -39,9 +41,10 @@ def make_move(move, board_view, piece_view):
         make_piece_move(move, board_view, piece_view)
     return board_view, piece_view
 
+
 def parse(pgn_file):
     if not path.exists(pgn_file):
-        print('pgn file path does not exist.')
+        print("pgn file path does not exist.")
         sys.exit(1)
 
     board_view, piece_view = setup()
@@ -53,5 +56,6 @@ def parse(pgn_file):
 
     print_board(board_view)
 
-if __name__=='__main__':
+
+if __name__ == "__main__":
     parse(sys.argv[1])

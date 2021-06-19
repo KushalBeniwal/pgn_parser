@@ -1,25 +1,37 @@
-'''Check and do castling.'''
+"""Check and do castling."""
 
-SPACE = ' '
-WHITE_CASTLING_ROW, BLACK_CASTLING_ROW = ['1', '1'], ['8', '8']
-KING_SIDE_CASTLING_FIN_COLS, QUEEN_SIDE_CASTLING_FIN_COLS = ['g', 'f'], ['c', 'd']
-KING_SIDE_CASTLING_INIT_COLS, QUEEN_SIDE_CASTLING_INIT_COLS = ['e', 'h'], ['e', 'a']
+SPACE = " "
+WHITE_CASTLING_ROW, BLACK_CASTLING_ROW = ["1", "1"], ["8", "8"]
+KING_SIDE_CASTLING_FIN_COLS, QUEEN_SIDE_CASTLING_FIN_COLS = ["g", "f"], ["c", "d"]
+KING_SIDE_CASTLING_INIT_COLS, QUEEN_SIDE_CASTLING_INIT_COLS = ["e", "h"], ["e", "a"]
+
 
 def is_king_side_castling(move):
     return len(move) == len(move) == 2
 
+
 def get_curr_pos(move):
     k_row, r_row = WHITE_CASTLING_ROW if move[0].isupper() else BLACK_CASTLING_ROW
-    
-    k_col, r_col = KING_SIDE_CASTLING_INIT_COLS if is_king_side_castling(move) else QUEEN_SIDE_CASTLING_INIT_COLS
+
+    k_col, r_col = (
+        KING_SIDE_CASTLING_INIT_COLS
+        if is_king_side_castling(move)
+        else QUEEN_SIDE_CASTLING_INIT_COLS
+    )
 
     return k_col + k_row, r_col + r_row
+
 
 def get_new_pos(move):
     k_row, r_row = WHITE_CASTLING_ROW if move[0].isupper() else BLACK_CASTLING_ROW
-    k_col, r_col = KING_SIDE_CASTLING_FIN_COLS if is_king_side_castling(move) else QUEEN_SIDE_CASTLING_FIN_COLS
+    k_col, r_col = (
+        KING_SIDE_CASTLING_FIN_COLS
+        if is_king_side_castling(move)
+        else QUEEN_SIDE_CASTLING_FIN_COLS
+    )
 
     return k_col + k_row, r_col + r_row
+
 
 def do_castling(move, board_view, piece_view):
     k_curr_pos, r_curr_pos = get_curr_pos(move)
@@ -32,7 +44,7 @@ def do_castling(move, board_view, piece_view):
     piece_view[king].append(k_new_pos)
 
     piece_view[rook].remove(r_curr_pos)
-    piece_view[rook].append(r_new_pos)    
+    piece_view[rook].append(r_new_pos)
 
     board_view[k_curr_pos] = SPACE
     board_view[r_curr_pos] = SPACE
