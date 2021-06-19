@@ -8,6 +8,7 @@ More info about, [PGN](https://en.wikipedia.org/wiki/Portable_Game_Notation) and
 1. Clone the repository:
 ```
 git clone https://github.com/KushalBeniwal/pgn_parser.git
+cd pgn_parser
 ```
 
 2. Run the program:
