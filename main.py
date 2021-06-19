@@ -1,13 +1,12 @@
 """Parse moves to get the final state of the board."""
 
 import sys
-
 from os import path
 
-from pre_process_pgn_file import pgn_to_moves
-from piece import make_piece_move
-from pawn import make_pawn_move
 from castling import do_castling
+from pawn import make_pawn_move
+from piece import make_piece_move
+from pre_process_pgn_file import pgn_to_moves
 from print_board import print_board
 
 SPACE, END = " ", "end"
